@@ -978,7 +978,7 @@ class BatchTest {
 
     @Test
     @DisplayName("Testing getter methods")
-    void testingAssignedFacultiesGetterAndAddFaculties() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
+    void testingAssignedFacultiesGetter() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
         Course course = new Course("Test Course", "Test Description", "Test Faculty");
         Batch batch = new Batch(
                 "Test1",
@@ -1019,5 +1019,220 @@ class BatchTest {
             assertEquals("Faculty User 1 Last Name", faculty.getFacultyUser().getLastName());
             assertEquals("fu1@example.com", faculty.getFacultyUser().getEmail());
         }
+    }
+
+    @Test
+    @DisplayName("Testing setter methods")
+    void testingNameSetter() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
+        Course course = new Course("Test Course", "Test Description", "Test Faculty");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+
+        batch.setName("Test2");
+        assertEquals("Test2", batch.getName());
+
+        course = new Course("Test Course", "Test Description", "Test Faculty");
+        batch = new Batch(
+                "Test4",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+
+        Batch finalBatch = batch;
+        Batch finalBatch1 = batch;
+        assertThrows(EmptyArgumentException.class, () -> finalBatch1.setName(""));
+        assertThrows(NullArgumentException.class, () -> finalBatch.setName(null));
+    }
+
+    @Test
+    @DisplayName("Testing setter methods")
+    void testingCourseSetter() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+
+        batch.setCourse(
+                new Course(
+                        "Test Course1",
+                        "Test Description1",
+                        "Test Code1"
+                )
+        );
+
+        assertEquals("Test Course1", batch.getCourse().getName());
+        assertEquals("Test Description1", batch.getCourse().getDescription());
+        assertEquals("Test Code1", batch.getCourse().getCode());
+
+        assertThrows(NullArgumentException.class, () -> batch.setCourse(null));
+    }
+
+    @Test
+    @DisplayName("Testing setter methods")
+    void testingDescriptionSetter() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+
+        batch.setDescription("Test Description2");
+
+        assertEquals("Test Description2", batch.getDescription());
+        assertThrows(NullArgumentException.class, () -> batch.setDescription(null));
+    }
+
+    @Test
+    @DisplayName("Testing setter methods")
+    void testingStartDateSetter() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 4, 1)
+        );
+
+        batch.setStartDate(LocalDate.of(2020, 1, 2));
+        assertEquals(LocalDate.of(2020, 1, 2), batch.getStartDate());
+
+        batch.setStartDate(LocalDate.of(2020, 1, 2).toString());
+        assertEquals(LocalDate.of(2020, 1, 2), batch.getStartDate());
+
+        assertThrows(NullArgumentException.class, () -> batch.setStartDate((LocalDate) null));
+        assertThrows(InvalidDateException.class, () -> batch.setStartDate("2020/01/01"));
+        assertThrows(InvalidDateException.class, () -> batch.setStartDate("2021-01-01"));
+        assertThrows(InvalidDateException.class, () -> batch.setStartDate(LocalDate.of(2025, 4, 3)));
+    }
+
+    @Test
+    @DisplayName("Testing setter methods")
+    void testingEndDateSetter() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 4, 1)
+        );
+
+        batch.setEndDate(LocalDate.of(2020, 5, 2));
+        assertEquals(LocalDate.of(2020, 5, 2), batch.getEndDate());
+
+        batch.setEndDate(LocalDate.of(2020, 5, 2).toString());
+        assertEquals(LocalDate.of(2020, 5, 2), batch.getEndDate());
+
+        assertThrows(NullArgumentException.class, () -> batch.setEndDate((LocalDate) null));
+        assertThrows(InvalidDateException.class, () -> batch.setEndDate("2022/01/01"));
+        assertThrows(InvalidDateException.class, () -> batch.setEndDate("2019-01-01"));
+        assertThrows(InvalidDateException.class, () -> batch.setEndDate((LocalDate.of(2019, 5, 2))));
+    }
+
+    @Test
+    @DisplayName("Testing setter methods")
+    void testingDurationDaysSetter() throws NullArgumentException, EmptyArgumentException, InvalidDateException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                20
+        );
+
+        assertThrows(InvalidDateException.class, () -> batch.setDurationDays(0));
+        assertThrows(InvalidDateException.class, () -> batch.setDurationDays(-1));
+
+        batch.setDurationDays(21);
+        assertEquals(21, batch.getDurationDays());
+    }
+
+    @Test
+    @DisplayName("Testing addFaculties method")
+    void testingAddFaculties() throws NullArgumentException, EmptyArgumentException, InvalidDateException, InvalidIdException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                20
+        );
+
+        batch.addFaculties(
+            new Faculty(
+                "Test Faculty 1",
+                "Test Faculty 1 Description",
+                "TF1",
+                new FacultyUser(
+                    "Test Faculty User 1",
+                    "1234",
+                    "Test Faculty User 1 First Name",
+                    "Test Faculty User 1 Last Name",
+                    "fu1@example.com"
+                )
+            )
+        );
+
+        assertEquals(1, batch.getAssignedFaculties().size());
+
+        for(UUID key : batch.getAssignedFaculties().keySet()) {
+            assertEquals("Test Faculty 1", batch.getAssignedFaculties().get(key).getName());
+            assertEquals("Test Faculty 1 Description", batch.getAssignedFaculties().get(key).getDescription());
+            assertEquals("TF1", batch.getAssignedFaculties().get(key).getCode());
+            assertEquals("Test Faculty User 1", batch.getAssignedFaculties().get(key).getFacultyUser().getUsername());
+            assertTrue(batch.getAssignedFaculties().get(key).getFacultyUser().passwordEquals("1234"));
+            assertEquals("Test Faculty User 1 First Name", batch.getAssignedFaculties().get(key).getFacultyUser().getFirstName());
+            assertEquals("Test Faculty User 1 Last Name", batch.getAssignedFaculties().get(key).getFacultyUser().getLastName());
+            assertEquals("fu1@example.com", batch.getAssignedFaculties().get(key).getFacultyUser().getEmail());
+        }
+    }
+
+    @Test
+    @DisplayName("Testing removeFaculties method")
+    void testingRemoveFaculties() throws NullArgumentException, EmptyArgumentException, InvalidDateException, InvalidIdException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                20
+        );
+
+        Faculty faculty = new Faculty (
+            "Test Faculty 1",
+            "Test Faculty 1 Description",
+            "TF1",
+            new FacultyUser(
+                    "Test Faculty User 1",
+                    "1234",
+                    "Test Faculty User 1 First Name",
+                    "Test Faculty User 1 Last Name",
+                    "fu1@example.com"
+            )
+        );
+
+        batch.addFaculties(faculty);
+        assertEquals(1, batch.getAssignedFaculties().size());
+
+        batch.removeFaculties(faculty);
+        assertEquals(0, batch.getAssignedFaculties().size());
     }
 }

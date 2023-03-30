@@ -16,7 +16,7 @@ public final class Admin {
     };
     private static final String USER_NAME = "admin";
     public static final String FIRST_NAME = "Admin";
-    public static final String LAST_NAME = "Admin";
+    public static final String LAST_NAME = "User";
     public static final String EMAIL = "admin@email.example";
 
     public static boolean usernameEquals(String username) {
