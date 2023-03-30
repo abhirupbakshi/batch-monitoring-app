@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="08698d7b-bb9b-4030-b826-308ff1fb1a88" name="Changes" comment="Created Entities and Compartment classes and related classes">
+      <change afterPath="$PROJECT_DIR$/database-path.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/constant-values.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/copy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/Main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/class-use/Main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/Batch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/Course.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/Faculty.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/class-use/Batch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/class-use/Course.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/class-use/Faculty.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/compartments/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/users/Admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/users/FacultyUser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/users/class-use/Admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/users/class-use/FacultyUser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/users/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/users/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/entities/users/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/EmptyArgumentException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/InvalidDateException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/InvalidIdException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/NullArgumentException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/class-use/EmptyArgumentException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/class-use/InvalidDateException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/class-use/InvalidIdException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/class-use/NullArgumentException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/exceptions/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/utility/CheckDate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/utility/Encrypt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/utility/class-use/CheckDate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/utility/class-use/Encrypt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/utility/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/utility/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/example/app/utility/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-13.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-14.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/jquery-ui.overrides.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/legal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/legal/jquery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/legal/jqueryUI.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/module-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/overview-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-3.6.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/search-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/serialized-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/tag-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/type-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/app/exceptions/DatabaseOperationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/app/interfaces/DatabaseInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/app/services/DatabaseConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/app/services/FileDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/example/app/services/DatabaseConfigTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/example/app/services/FileDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/CourseList.ser" beforeDir="false" afterPath="$PROJECT_DIR$/database/CourseList.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/batch-monitoring-app/CourseList.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/batch-monitoring-app/CourseList.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/batch-monitoring-app/example/app/entities/compartments/Batch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/batch-monitoring-app/example/app/entities/compartments/Batch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/batch-monitoring-app/example/app/entities/users/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/batch-monitoring-app/example/app/entities/users/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/batch-monitoring-app/example/app/entities/compartments/BatchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/batch-monitoring-app/example/app/entities/compartments/BatchTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/app/entities/compartments/Batch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/app/entities/compartments/Batch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/app/entities/users/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/app/entities/users/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/example/app/entities/compartments/BatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/example/app/entities/compartments/BatchTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2Nbo5cgTrQt5c9Gegxxhr0xDUax" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2665615",
+    "settings.editor.selected.configurable": "editor.preferences.gutterIcons"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="example.app" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="example.app.services" />
+      <recent name="example.app.entities.compartments" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in batch-monitoring-app">
+    <configuration name="All in batch-monitoring-app" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="batch-monitoring-app" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileDatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="batch-monitoring-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="example.app.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="example.app.services" />
+      <option name="MAIN_CLASS_NAME" value="example.app.services.FileDatabaseTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileDatabaseTest.testingIsPresent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="batch-monitoring-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="example.app.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="example.app.services" />
+      <option name="MAIN_CLASS_NAME" value="example.app.services.FileDatabaseTest" />
+      <option name="METHOD_NAME" value="testingIsPresent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileDatabaseTest.testingRemoveEntry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="batch-monitoring-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="example.app.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="example.app.services" />
+      <option name="MAIN_CLASS_NAME" value="example.app.services.FileDatabaseTest" />
+      <option name="METHOD_NAME" value="testingRemoveEntry" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="example.app.services in batch-monitoring-app" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="batch-monitoring-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="example.app.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="example.app.services" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in batch-monitoring-app" />
+        <item itemvalue="JUnit.example.app.services in batch-monitoring-app" />
+        <item itemvalue="JUnit.FileDatabaseTest" />
+        <item itemvalue="JUnit.FileDatabaseTest.testingIsPresent" />
+        <item itemvalue="JUnit.FileDatabaseTest.testingRemoveEntry" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08698d7b-bb9b-4030-b826-308ff1fb1a88" name="Changes" comment="" />
+      <created>1679941960595</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679941960595</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Created Entities and Compartment classes and related classes">
+      <created>1680103141735</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680103141735</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Created Entities and Compartment classes and related classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Entities and Compartment classes and related classes" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/batch_monitoring_app$BatchTest.ic" NAME="BatchTest Coverage Results" MODIFIED="1680111217673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>example.app.entities.compartments.*</FILTER>
+    </SUITE>
+  </component>
+</project>
