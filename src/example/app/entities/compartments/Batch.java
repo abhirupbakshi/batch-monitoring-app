@@ -11,6 +11,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * <h1>Class Batch</h1>
+ * A Batch represent a batch of a course. Every batch has an UUID, a name, a course, a description,
+ * a start date and an end date, a duration of days, a creation date and list of faculties assigned
+ * to it. The id is assigned automatically and cannot be changed later.
+ */
 public class Batch {
     private final UUID id;
     private String name;
@@ -22,14 +28,25 @@ public class Batch {
     private final LocalDate batchCreationDate;
     private final HashMap<UUID, Faculty> assignedFaculties = new HashMap<>();
 
+    /**
+     * @return the id of the batch
+     */
     public UUID getId() {
         return id;
     }
 
+    /**
+     * @return the name of the batch
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the name of the batch
+     * @throws NullArgumentException if the name is null
+     * @throws EmptyArgumentException if the name is empty
+     */
     public void setName(String name)
             throws NullArgumentException, EmptyArgumentException {
         if(name == null)
@@ -40,10 +57,17 @@ public class Batch {
         this.name = name;
     }
 
+    /**
+     * @return the course of the batch
+     */
     public Course getCourse() {
         return course;
     }
 
+    /**
+     * @param course a course that needs to added to the batch
+     * @throws NullArgumentException if the course is null
+     */
     public void setCourse(Course course) throws NullArgumentException {
         if(course == null)
             throw new NullArgumentException("Cannot set the value of \"course\" in class \"Batch\" to null");
@@ -51,10 +75,18 @@ public class Batch {
         this.course = course;
     }
 
+    /**
+     * @return the description of the batch
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * User can set an empty description
+     * @param description the description of the batch to be replaced with
+     * @throws NullArgumentException if the description is null
+     */
     public void setDescription(String description)
             throws NullArgumentException {
         if(description == null)
@@ -63,6 +95,13 @@ public class Batch {
         this.description = description;
     }
 
+    /**
+     * @param startDate the start date of the batch
+     * @param endDate the end date of the batch
+     * @throws NullArgumentException if the startDate or endDate is null
+     * @throws InvalidDateException if the startDate is after the endDate
+     * @throws InvalidDateException if the startDate is equal to the endDate
+     */
     public void setDate(LocalDate startDate, LocalDate endDate)
             throws NullArgumentException, InvalidDateException {
         if(startDate == null)
@@ -79,6 +118,14 @@ public class Batch {
         durationDays = ChronoUnit.DAYS.between(startDate, endDate);
     }
 
+    /**
+     * @param startDate the start date of the batch
+     * @param endDate the end date of the batch
+     * @throws NullArgumentException if the startDate or endDate is null
+     * @throws InvalidDateException if the startDate or endDate in wrong format
+     * @throws InvalidDateException if the startDate is after the endDate
+     * @throws InvalidDateException if the startDate is equal to the endDate
+     */
     public void setDate(String startDate, String endDate)
             throws InvalidDateException, NullArgumentException {
         LocalDate startDateLocal;
@@ -107,6 +154,12 @@ public class Batch {
         setDate(startDateLocal, endDateLocal);
     }
 
+    /**
+     * @param startDate the start date of the batch
+     * @param durationDays the duration of the batch
+     * @throws NullArgumentException if the startDate is null
+     * @throws InvalidDateException if the durationDays is negative or zero
+     */
     public void setDate(LocalDate startDate, long durationDays)
             throws NullArgumentException, InvalidDateException {
         if(startDate == null)
@@ -117,6 +170,13 @@ public class Batch {
         setDate(startDate, startDate.plusDays(durationDays));
     }
 
+    /**
+     * @param startDate the start date of the batch
+     * @param durationDays the duration of the batch
+     * @throws NullArgumentException if the startDate is null
+     * @throws InvalidDateException if the startDate is in wrong format
+     * @throws InvalidDateException if the durationDays is negative or zero
+     */
     public void setDate(String startDate, long durationDays)
             throws NullArgumentException, InvalidDateException {
         try {
@@ -130,10 +190,18 @@ public class Batch {
         }
     }
 
+    /**
+     * @return the start date of the batch
+     */
     public LocalDate getStartDate() {
         return startDate;
     }
 
+    /**
+     * @param startDate the start date of the batch
+     * @throws InvalidDateException if the startDate is after the endDate
+     * @throws NullArgumentException if the startDate is null
+     */
     public void setStartDate(LocalDate startDate)
             throws InvalidDateException, NullArgumentException {
         if(startDate == null)
@@ -142,6 +210,12 @@ public class Batch {
         setDate(startDate, this.endDate);
     }
 
+    /**
+     * @param startDate the start date of the batch
+     * @throws InvalidDateException if the startDate is after the endDate
+     * @throws InvalidDateException if the startDate is in wrong format
+     * @throws NullArgumentException if the startDate is null
+     */
     public void setStartDate(String startDate)
             throws InvalidDateException, NullArgumentException {
         try {
@@ -155,10 +229,18 @@ public class Batch {
         }
     }
 
+    /**
+     * @return the end date of the batch
+     */
     public LocalDate getEndDate() {
         return endDate;
     }
 
+    /**
+     * @param endDate the end date of the batch
+     * @throws InvalidDateException if the endDate is before the startDate
+     * @throws NullArgumentException if the endDate is null
+     */
     public void setEndDate(LocalDate endDate)
             throws InvalidDateException, NullArgumentException {
         if(endDate == null)
@@ -167,6 +249,12 @@ public class Batch {
         setDate(this.startDate, endDate);
     }
 
+    /**
+     * @param endDate the end date of the batch
+     * @throws InvalidDateException if the endDate is before the startDate
+     * @throws InvalidDateException if the endDate is in wrong format
+     * @throws NullArgumentException if the endDate is null
+     */
     public void setEndDate(String endDate)
             throws InvalidDateException, NullArgumentException {
         try {
@@ -180,19 +268,34 @@ public class Batch {
         }
     }
 
+    /**
+     * @return the duration of the batch
+     */
     public long getDurationDays() {
         return durationDays;
     }
 
+    /**
+     * @param durationDays the duration of the batch
+     * @throws InvalidDateException if the durationDays is negative or zero
+     * @throws NullArgumentException if the durationDays is null
+     */
     public void setDurationDays(long durationDays)
             throws InvalidDateException, NullArgumentException {
         setDate(this.startDate, durationDays);
     }
 
+    /**
+     * @return A list of the assigned faculties
+     */
     public HashMap<UUID, Faculty> getAssignedFaculties() {
         return assignedFaculties;
     }
 
+    /**
+     * @param faculties the faculties to add to the batch
+     * @throws NullArgumentException if any given faculty is null and does not add any faculty to the batch
+     */
     public void addFaculties(Faculty... faculties) throws NullArgumentException {
         for(Faculty faculty : faculties) {
             if(faculty == null)
@@ -204,16 +307,32 @@ public class Batch {
         }
     }
 
+    /**
+     * @param faculties the faculties to remove from the batch
+     */
     public void removeFaculties(Faculty... faculties) {
         for(Faculty faculty : faculties) {
             assignedFaculties.remove(faculty.getId());
         }
     }
 
+    /**
+     * @return the batch creation date
+     */
     public LocalDate getBatchCreationDate() {
         return batchCreationDate;
     }
 
+    /**
+     * @param name the name of the batch
+     * @param course the course of the batch
+     * @param description the description of the batch
+     * @param startDate the start date of the batch
+     * @param endDate the end date of the batch
+     * @throws NullArgumentException for any reason mentioned in the setter methods
+     * @throws EmptyArgumentException for any reason mentioned in the setter methods
+     * @throws InvalidDateException for any reason mentioned in the setter methods
+     */
     public Batch(String name, Course course, String description, LocalDate startDate, LocalDate endDate)
             throws NullArgumentException, EmptyArgumentException, InvalidDateException {
         this.id = UUID.randomUUID();
@@ -225,6 +344,16 @@ public class Batch {
         this.batchCreationDate = LocalDate.now();
     }
 
+    /**
+     * @param name the name of the batch
+     * @param course the course of the batch
+     * @param description the description of the batch
+     * @param startDate the start date of the batch
+     * @param durationDays the duration of the batch
+     * @throws NullArgumentException for any reason mentioned in the setter methods
+     * @throws EmptyArgumentException for any reason mentioned in the setter methods
+     * @throws InvalidDateException for any reason mentioned in the setter methods
+     */
     public Batch(String name, Course course, String description, LocalDate startDate, long durationDays)
             throws NullArgumentException, EmptyArgumentException, InvalidDateException {
         this.id = UUID.randomUUID();
@@ -236,6 +365,16 @@ public class Batch {
         this.batchCreationDate = LocalDate.now();
     }
 
+    /**
+     * @param name the name of the batch
+     * @param course the course of the batch
+     * @param description the description of the batch
+     * @param startDate the start date of the batch
+     * @param endDate the end date of the batch
+     * @throws NullArgumentException for any reason mentioned in the setter methods
+     * @throws EmptyArgumentException for any reason mentioned in the setter methods
+     * @throws InvalidDateException for any reason mentioned in the setter methods
+     */
     public Batch(String name, Course course, String description, String startDate, String endDate)
             throws NullArgumentException, EmptyArgumentException, InvalidDateException {
         this.id = UUID.randomUUID();
@@ -247,6 +386,16 @@ public class Batch {
         this.batchCreationDate = LocalDate.now();
     }
 
+    /**
+     * @param name the name of the batch
+     * @param course the course of the batch
+     * @param description the description of the batch
+     * @param startDate the start date of the batch
+     * @param durationDays the duration of the batch
+     * @throws NullArgumentException for any reason mentioned in the setter methods
+     * @throws EmptyArgumentException for any reason mentioned in the setter methods
+     * @throws InvalidDateException for any reason mentioned in the setter methods
+     */
     public Batch(String name, Course course, String description, String startDate, long durationDays)
             throws NullArgumentException, EmptyArgumentException, InvalidDateException {
         this.id = UUID.randomUUID();
