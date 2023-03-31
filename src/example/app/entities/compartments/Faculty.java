@@ -3,11 +3,13 @@ package example.app.entities.compartments;
 import example.app.entities.users.FacultyUser;
 import example.app.exceptions.EmptyArgumentException;
 import example.app.exceptions.NullArgumentException;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Faculty {
+public class Faculty implements Serializable {
     private final UUID id;
     private String name;
     private String description;

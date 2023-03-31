@@ -1235,4 +1235,54 @@ class BatchTest {
         batch.removeFaculties(faculty);
         assertEquals(0, batch.getAssignedFaculties().size());
     }
+
+    @Test
+    void testingEquals() throws InvalidDateException, NullArgumentException, EmptyArgumentException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch1 = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+        Batch batch2 = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+        Batch batch3 = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 4)
+        );
+
+        assertEquals(batch1, batch2);
+        assertNotEquals(batch1, batch3);
+    }
+
+    @Test
+    void testingHashCode() throws InvalidDateException, NullArgumentException, EmptyArgumentException {
+        Course course = new Course("Test Course", "Test Description", "Test Code");
+        Batch batch1 = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+        Batch batch2 = new Batch(
+                "Test1",
+                course,
+                "Test Description1",
+                LocalDate.of(2020, 1, 1),
+                LocalDate.of(2020, 1, 3)
+        );
+
+        assertEquals(batch1.hashCode(), batch2.hashCode());
+    }
 }
