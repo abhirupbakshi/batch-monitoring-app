@@ -4,11 +4,14 @@ import example.app.exceptions.EmptyArgumentException;
 import example.app.exceptions.InvalidIdException;
 import example.app.exceptions.NullArgumentException;
 import example.app.utility.Encrypt;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.UUID;
 
-class User {
+class User implements Serializable {
     final private UUID id;
     private String username;
     private byte[] password;
@@ -112,6 +115,20 @@ class User {
 
     public boolean credentialsEquals(String username, String password) {
         return this.usernameEquals(username) && this.passwordEquals(password);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return getUsername().equals(user.getUsername()) && Arrays.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getUsername());
+        result = 31 * result + Arrays.hashCode(password);
+        return result;
     }
 
     private User(String username, String firstName, String lastName, String email, String... ids)

@@ -5,10 +5,12 @@ import example.app.exceptions.InvalidDateException;
 import example.app.exceptions.NullArgumentException;
 import example.app.utility.CheckDate;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -17,7 +19,7 @@ import java.util.UUID;
  * a start date and an end date, a duration of days, a creation date and list of faculties assigned
  * to it. The id is assigned automatically and cannot be changed later.
  */
-public class Batch {
+public class Batch implements Serializable {
     private final UUID id;
     private String name;
     private Course course;
@@ -321,6 +323,34 @@ public class Batch {
      */
     public LocalDate getBatchCreationDate() {
         return batchCreationDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Batch batch)) return false;
+        return getDurationDays() == batch.getDurationDays() &&
+                getName().equals(batch.getName()) &&
+                getCourse().equals(batch.getCourse()) &&
+                getDescription().equals(batch.getDescription()) &&
+                getStartDate().equals(batch.getStartDate()) &&
+                getEndDate().equals(batch.getEndDate()) &&
+                getBatchCreationDate().equals(batch.getBatchCreationDate()) &&
+                getAssignedFaculties().equals(batch.getAssignedFaculties());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                getName(),
+                getCourse(),
+                getDescription(),
+                getStartDate(),
+                getEndDate(),
+                getDurationDays(),
+                getBatchCreationDate(),
+                getAssignedFaculties()
+        );
     }
 
     /**
