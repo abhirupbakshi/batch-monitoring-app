@@ -66,6 +66,13 @@ public class Course implements Serializable {
         return Objects.hash(getName(), getDescription(), getCode());
     }
 
+    @Override
+    public String toString() {
+        return "Name: " + this.getName() + "\n" +
+                "Description: " + this.getDescription() + "\n" +
+                "Course Code: " + this.getCode();
+    }
+
     /**
      * The constructor of the class.
      * @param name

@@ -36,25 +36,6 @@ public class FileDatabase<T> implements DatabaseInterface<T> {
     }
 
     /**
-     * This method creates the root directory in the database-path.config file. If the directory
-     * cannot be created or if it fails to retrieve the path name from config file, it throws an
-     * DatabaseOperationException.
-     * @throws DatabaseOperationException in case there's any problem reading the config file or creating the directory
-     */
-    void createRootDir() throws DatabaseOperationException {
-        File dir = null;
-        try {
-            dir = new File(this.getFullPath("root"));
-        } catch (IOException exception) {
-            throw new DatabaseOperationException("Cannot get root directory's full path", exception);
-        }
-
-        if(!dir.exists())
-            if(!dir.mkdir())
-                throw new DatabaseOperationException("Cannot create directory");
-    }
-
-    /**
      * This method reads the database partition (whose name was supplied as parameter), and
      * returns a linked list of the objects or null in case the file does not exist. In case
      * the path cannot be retrieved from the config file, or if there's a problem in reading
