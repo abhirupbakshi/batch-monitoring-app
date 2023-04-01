@@ -3,6 +3,7 @@ package example.app.entities.compartments;
 import example.app.exceptions.EmptyArgumentException;
 import example.app.exceptions.InvalidDateException;
 import example.app.exceptions.NullArgumentException;
+import example.app.services.Faculties;
 import example.app.utility.CheckDate;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -351,6 +353,23 @@ public class Batch implements Serializable {
                 getBatchCreationDate(),
                 getAssignedFaculties()
         );
+    }
+
+    @Override
+    public String toString() {
+        String course =
+                "\tName: " + this.course.getName() + "\n" +
+                "\tDescription: " + this.course.getDescription() + "\n" +
+                "\tCode: " + this.course.getCode();
+
+        return  "Name: " + this.name + "\n" +
+                "Assigned Course: \n" + course + '\n' +
+                "Batch Creation Date: " + batchCreationDate + "\n" +
+                "Batch Start Date: " + startDate + "\n" +
+                "Batch End Date: " + endDate + "\n" +
+                "Batch Duration (In Days): " + durationDays + "\n" +
+
+                "Assigned Faculties:\n\n" + new Faculties().createTabularFormat(new LinkedList<>(assignedFaculties.values()));
     }
 
     /**
