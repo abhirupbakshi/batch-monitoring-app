@@ -1,12 +1,15 @@
 package example.app.entities.users;
 
-import example.app.exceptions.EmptyArgumentException;
-import example.app.exceptions.InvalidIdException;
-import example.app.exceptions.NullArgumentException;
+import example.app.entities.exceptions.EmptyArgumentException;
+import example.app.entities.exceptions.NullArgumentException;
 
+/**
+ * <h1>Class FacultyUser</h1>
+ * This class extends User class and represents a faculty user.
+ */
 public class FacultyUser extends User {
     public FacultyUser(String username, String password, String firstName, String lastName, String email)
-            throws NullArgumentException, EmptyArgumentException, InvalidIdException {
+            throws NullArgumentException, EmptyArgumentException {
         super(username, password, firstName, lastName, email);
     }
 }

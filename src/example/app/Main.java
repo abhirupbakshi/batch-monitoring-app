@@ -1,101 +1,100 @@
 package example.app;
 
-
-import example.app.constants.DataBasePartitionNames;
-import example.app.entities.compartments.Batch;
-import example.app.entities.compartments.Course;
-import example.app.entities.compartments.Faculty;
+import example.app.entities.users.Admin;
 import example.app.entities.users.FacultyUser;
-import example.app.exceptions.EmptyArgumentException;
-import example.app.exceptions.InvalidDateException;
-import example.app.exceptions.InvalidIdException;
-import example.app.exceptions.NullArgumentException;
-import example.app.services.Batches;
-import example.app.services.Courses;
-import example.app.services.EntityList;
+import example.app.entitylist.UserList;
+import example.app.filedatabase.Exceptions.CannotCreateFileException;
+import example.app.filedatabase.Exceptions.FileDatabaseConfigFileException;
+import example.app.filedatabase.Exceptions.FileDatabaseInternalException;
+import example.app.filedatabase.FileDatabaseConfigFile;
+import example.app.ui.AdminPageUI;
+import example.app.ui.FacultyPageUI;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.ObjectOutputStream;
-import java.security.NoSuchAlgorithmException;
-import java.time.LocalDate;
+import java.io.IOException;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class Main {
+    public static FacultyUser findUser(String username)
+            throws CannotCreateFileException, FileDatabaseConfigFileException,
+            IOException, ClassNotFoundException, FileDatabaseInternalException {
+        for(UUID key : new UserList().getIds()) {
+            FacultyUser facultyUser = (FacultyUser) new UserList().get(key);
+
+            if(username.equals(facultyUser.getUsername()))
+                return facultyUser;
+        }
+
+        return null;
+    }
+
     public static void main(String[] args) throws Exception {
-        EntityList<Batch> entityList = new EntityList<>();
+        Scanner scanner = new Scanner(System.in);
 
-//        new Batches().add(
-//                new Batch(
-//                        "batch1",
-//                        new Course(
-//                                "course1",
-//                                "description1",
-//                                "c1"
-//                        ),
-//                        "description1",
-//                        LocalDate.of(2020, 1, 1),
-//                        LocalDate.of(2021, 1, 1)
-//                ),
-//                new Batch(
-//                        "batch2",
-//                        new Course(
-//                                "course2",
-//                                "description2",
-//                                "c2"
-//                        ),
-//                        "description2",
-//                        LocalDate.of(2020, 1, 1),
-//                        LocalDate.of(2021, 1, 1)
-//                )
-//        );
+        while(true) {
+            System.out.println("Press \033[1m1\033[22m: Admin Login");
+            System.out.println("Press \033[1m2\033[22m: Faculty User Login");
+            System.out.println("Press \033[1m3\033[22m: Create a new database config file");
+            System.out.println("Press \033[1m4\033[22m: Exit");
 
-//        System.out.println(new Batches());
+            System.out.print("\nEnter Choice: ");
+            int choice = Integer.parseInt(scanner.nextLine());
 
-        Batch batch = new Batch(
-                "batch1",
-                new Course(
-                        "course1",
-                        "description1",
-                        "c1"
-                ),
-                "description1",
-                LocalDate.of(2020, 1, 1),
-                LocalDate.of(2021, 1, 1)
-        );
-        batch.addFaculties(new Faculty(
-                "faculty1",
-                "description1",
-                "f1",
-                new FacultyUser(
-                        "user1",
-                        "password1",
-                        "John",
-                        "Doe",
-                        "f1"
-                )
-            )
-        );
+            switch(choice) {
+                case 1:
+                    while(true) {
+                        System.out.println("\033[1m\033[4mAdmin Login:\033[24m\033[22m");
+                        System.out.print("Username: ");
+                        String username = scanner.nextLine();
+                        System.out.print("Password: ");
+                        String password = scanner.nextLine();
 
-        Faculty faculty = new Faculty(
-                "faculty1",
-                "description1",
-                "f1",
-                new FacultyUser(
-                        "user1",
-                        "password1",
-                        "John",
-                        "Doe",
-                        "f1"
-                )
-        );
-        faculty.addBatches(
-                batch
-        );
-        System.out.println(
-                faculty
-        );
+                        if(username.isEmpty() || password.isEmpty())
+                            System.out.println("\033[31mUsername and password cannot be empty\033[0m\n");
+                        else {
+                            if(Admin.credentialsEquals(username, password)) {
+                                AdminPageUI.login();
+                                break;
+                            }
+                            else
+                                System.out.println("\033[31mInvalid Credentials\033[0m\n");
+                        }
+                    }
+                    break;
+                case 2:
+                    while(true) {
+                        System.out.println("\033[1m\033[4mFaculty User Login:\033[24m\033[22m");
+                        System.out.print("Username: ");
+                        String username = scanner.nextLine();
+                        System.out.print("Password: ");
+                        String password = scanner.nextLine();
 
+                        if(username.isEmpty() || password.isEmpty())
+                            System.out.println("\033[31mUsername and password cannot be empty\033[0m\n");
+                        else {
+                            FacultyUser user = findUser(username);
+                            if(user == null) {
+                                System.out.println("\033[31mUser not found\033[0m\n");
+                                break;
+                            }
+                            else if(user.credentialsEquals(username, password)) {
+                                FacultyPageUI.login(user);
+                                break;
+                            }
+                            else
+                                System.out.println("\033[31mInvalid Credentials\033[0m\n");
+                        }
+                    }
+                    break;
+                case 3:
+                    FileDatabaseConfigFile.create();
+                    break;
+                case 4:
+                    System.out.println("\033[1m\033[4mExiting...\033[24m\033[22m\n");
+                    return;
+                default:
+                    System.out.println("\033[31mInvalid choice\033[0m\n");
+            }
+        }
     }
 }

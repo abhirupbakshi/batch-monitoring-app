@@ -1,8 +1,11 @@
 example.app
-example.app.constants
+example.app.entities
 example.app.entities.compartments
+example.app.entities.exceptions
 example.app.entities.users
-example.app.exceptions
-example.app.interfaces
-example.app.services
+example.app.entitylist
+example.app.entitylist.exceptions
+example.app.filedatabase
+example.app.filedatabase.Exceptions
+example.app.ui
 example.app.utility
